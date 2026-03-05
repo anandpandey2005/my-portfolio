@@ -28,4 +28,4 @@ If you're eager to get your projects out there but don't want to start from a bl
 3. **if you like then please hit on stars**
    ```bash
    
-   git clone https://github.com/anandpandey2005/my-portfolio/tree/main
+   git clone [https://github.com/anandpandey2005/my-portfolio/tree/main](https://github.com/anandpandey2005/my-portfolio)
