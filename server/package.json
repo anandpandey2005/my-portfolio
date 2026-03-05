@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A clean, resume-inspired Full-Stack Portfolio template. Built for developers who want a professional showcase without starting from scratch. Fork & deploy!",
+  "homepage": "https://github.com/anandpandey2005/my-portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/anandpandey2005/my-portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandpandey2005/my-portfolio.git"
+  },
+  "license": "ISC",
+  "author": "anandpandey",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "format": "prettier --write .",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.4",
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}
