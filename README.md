@@ -24,4 +24,4 @@ If you're eager to get your projects out there but don't want to start from a bl
 1. **Fork this repository**
 2. **Clone your fork:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+   git clone https://github.com/anandpandey2005/my-portfolio/tree/main
