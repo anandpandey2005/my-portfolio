@@ -65,9 +65,9 @@ const Experiencepage = () => {
   }, [location]);
 
   return (
-    <div className=" text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
+    <div className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
       <article>
-        <title>My Experieces | ANAND PANDEY</title>
+        <title>My Experiences | ANAND PANDEY</title>
       </article>
       <div className="flex flex-col gap-y-5">
         <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-400">
@@ -77,23 +77,69 @@ const Experiencepage = () => {
           Experience
         </h3>
         <p className="text-neutral-600 leading-relaxed mt-2 text-justify">
-          As a freelance developer, I bridge the gap between complex technical
-          architecture and seamless user experiences. I don't just write
-          functional code; I refine it until it runs optimally and scales
-          effortlessly.
+          <strong>
+            सीधा बोलूंगा experience ने मुझे वो चीजें सिखायीं जो कोई ट्यूटोरियल
+            कभी नहीं सिखा सकता।
+          </strong>{" "}
+          Working inside real companies, with real deadlines and real teams,
+          changes how you think about code entirely. You stop asking "does this
+          work?" and start asking{" "}
+          <strong>
+            "will this hold up at 3am when something breaks and I'm not around?"
+          </strong>{" "}
+          Every role I've taken on has added a layer better instincts, sharper
+          decisions, and an understanding of what businesses actually need
+          versus what sounds good in a meeting.
+        </p>
+
+        <p className="text-neutral-600 leading-relaxed mt-4 text-justify">
+          I've worked across industries from early-stage startups where I was
+          the entire tech team, to structured environments with code reviews,
+          sprint cycles, and stakeholders who had opinions about everything.
+          Both taught me something valuable.{" "}
+          <strong>
+            Startups taught me speed and ownership. Structured teams taught me
+            discipline and communication.
+          </strong>{" "}
+          आज जो भी मैं बिल्ड करता हूं, उसमें दोनों का बैलेंस होता है।
         </p>
       </div>
 
-      {/* holding experience card */}
-      <section className="border-l-10 p-5 mt-6 rounded-2xl">
-        {experiences.map((item: any) => (
-          <ExperienceCard key={item.id} {...item} />
-        ))}
+      <section className="relative mt-16 py-10 before:absolute before:top-0 before:bottom-0 before:left-4 md:before:left-1/2 before:-translate-x-1/2 before:w-[2px] before:bg-neutral-200">
+        <div className="flex flex-col gap-y-12 md:gap-y-6">
+          {experiences.map((item: any, index: number) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={item.id}
+                className={`relative flex flex-col w-full pl-10 md:pl-0 md:w-1/2 ${
+                  isEven
+                    ? "md:align-self-start md:pr-12 md:ml-0"
+                    : "md:self-end md:pl-12"
+                }`}
+              >
+                <div
+                  className={`absolute top-8 left-[9px] z-10 w-3 h-3 rounded-full bg-neutral-900 border-4 border-white ring-1 ring-neutral-300 ${
+                    isEven
+                      ? "md:left-auto md:right-0 md:translate-x-1/2"
+                      : "md:right-auto md:left-0 md:-translate-x-1/2"
+                  }`}
+                />
+                <div
+                  className={`w-full flex ${isEven ? "md:justify-end" : "md:justify-start"}`}
+                >
+                  <ExperienceCard {...item} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </section>
+      {/* ------------------------- */}
 
       {/* contact form */}
       <section
-        className="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+        className="max-w-5xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
         id="get-in-touch"
       >
         <div className="flex flex-col gap-y-4">
@@ -103,9 +149,14 @@ const Experiencepage = () => {
           <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900">
             Let's build something precise
           </h3>
-          <p className="text-neutral-600 leading-relaxed mt-2 text-justify ">
-            Currenlty accepting freelance projects and technical consulting
-            engagement. Reach out to discuss your vision.
+          <p className="text-neutral-700 text-base leading-relaxed font-medium">
+            <strong>कुछ दिखा जो काम का लगा?</strong> Let's talk about what we
+            can build together.
+          </p>
+          <p className="text-neutral-500 text-sm mt-2 leading-relaxed">
+            Whether you have a project in mind, a role to fill, or just want to
+            pick my brain <strong>my inbox is always open.</strong> I respond to
+            every message, usually within 24 hours.
           </p>
           <div className="my-4 flex flex-col gap-y-4">
             {/* Email */}
@@ -138,10 +189,10 @@ const Experiencepage = () => {
               </div>
             </div>
           </div>
-          <p>
+          <div>
             <div className="flex items-center justify-center gap-5 text-xs font-semibold text-neutral-600 dark:text-neutral-400">
               <a
-                href="https://github.com"
+                href={import.meta.env.VITE_GITHUB_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1.5 rounded-md transition-all duration-300 hover:text-white hover:bg-neutral-900 dark:hover:bg-neutral-800"
@@ -149,7 +200,7 @@ const Experiencepage = () => {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href={import.meta.env.VITE_LINKEDIN_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1.5 rounded-md transition-all duration-300 hover:text-white hover:bg-[#0077b5]"
@@ -157,7 +208,7 @@ const Experiencepage = () => {
                 LinkedIn
               </a>
               <a
-                href="/resume.pdf"
+                href={import.meta.env.VITE_CV_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1.5 rounded-md transition-all duration-300 hover:text-white hover:bg-neutral-900 dark:hover:bg-neutral-800"
@@ -165,7 +216,7 @@ const Experiencepage = () => {
                 CV
               </a>
             </div>
-          </p>
+          </div>
         </div>
 
         {/* Right: Skills / Expertise */}
@@ -199,14 +250,14 @@ const Experiencepage = () => {
             <textarea
               name="message"
               id="message"
-              placeholder="I  want collaborate with you"
+              placeholder="I want collaborate with you"
               className="outline-none  border-b  border-neutral-300 py-2  focus:border-b-green-400 transition-all ease-in-out duration-500"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="flex items-center gap-2 p-5 bg-black text-white justify-center rounded-2xl hover:bg-white hover:text-black transition-all ease-in-out duration:500"
+            className="flex items-center gap-2 p-5 bg-black text-white justify-center rounded-2xl hover:bg-white hover:text-black transition-all ease-in-out duration-500"
           >
             <span>SEND MESSAGE </span>
             <span>

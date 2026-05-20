@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="flex items-center gap-2 text-xs font-semibold text-neutral-600 dark:text-neutral-400">
           <a
-            href="https://github.com"
+            href={import.meta.env.VITE_GITHUB_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-md transition-all duration-300 hover:text-white hover:bg-neutral-900 dark:hover:bg-neutral-800"
@@ -24,7 +24,7 @@ const Footer = () => {
             GitHub
           </a>
           <a
-            href="https://linkedin.com"
+            href={import.meta.env.VITE_LINKEDIN_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-md transition-all duration-300 hover:text-white hover:bg-[#0077b5]"
@@ -32,7 +32,7 @@ const Footer = () => {
             LinkedIn
           </a>
           <a
-            href="/resume.pdf"
+            href={import.meta.env.VITE_CV_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-md transition-all duration-300 hover:text-white hover:bg-neutral-900 dark:hover:bg-neutral-800"

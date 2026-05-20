@@ -35,6 +35,11 @@ const Projectpage = () => {
 
   return (
     <div className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
+      <article>
+        <title>
+          My Work | ANAND PANDEY
+        </title>
+      </article>
       <div className="flex flex-col gap-y-3">
         <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-400">
           Development Journey
@@ -42,12 +47,16 @@ const Projectpage = () => {
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900">
           My Works & Projects
         </h1>
-        <p className="text-neutral-600 leading-relaxed mt-2 text-base ">
-          Explore a curated selection of applications built with dedication,
-          clean architecture, and uncompromising performance. I focus on
-          crafting seamless responsive experiences, optimizing core workflows,
-          and creating digital interactions that feel fast and intuitive on any
-          device.
+        <p className="text-neutral-600 leading-relaxed mt-2 text-justify">
+          <strong>
+            हर प्रोजेक्ट एक नया प्रॉब्लम था और मैं प्रॉब्लम्स से भागता नहीं,
+          </strong>{" "}
+          Below is a collection of work I've built, broken, rebuilt, and
+          eventually shipped. Some of these started as client briefs, some as{" "}
+          <strong>3am ideas I couldn't let go of</strong>, and a few as
+          solutions to problems I personally faced and couldn't find a good
+          answer for online.{" "}
+          <strong>Each one taught me something the docs never could.</strong>
         </p>
       </div>
 
