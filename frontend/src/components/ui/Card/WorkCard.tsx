@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react"; // Optional: npm i lucide-react, or use the raw SVG below
-
 interface IWorkProps {
   id: number;
   image: string;
