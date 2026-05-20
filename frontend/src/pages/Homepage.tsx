@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Homepage = () => {
@@ -18,7 +18,18 @@ const Homepage = () => {
   ];
   let navigate = useNavigate();
 
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isIframeLoaded) {
+        setShowFallback(true);
+      }
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [isIframeLoaded]);
 
   return (
     <div className="min-h-screen text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-7xl mx-auto">
@@ -147,6 +158,7 @@ const Homepage = () => {
             width="103%"
             height="600"
             className="border-none px-5"
+            onLoad={() => setIsIframeLoaded(true)}
             onError={() => setShowFallback(true)}
           ></iframe>
         )}
