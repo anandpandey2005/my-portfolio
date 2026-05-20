@@ -80,12 +80,12 @@ const Homepage = () => {
         <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl grayscale">
           नमस्ते 🙏🏻
           <span className="text-3xl sm:text-5xl md:text-7xl block mt-2 text-neutral-700  group">
-            <span className="group-hover:text-yellow-500 transition-all ease-in-out duration-500">{`</`}</span>
+            <span className="group-hover:text-yellow-500 transition-all ease-in-out duration-500">{`<`}</span>
             <span className="transition-all ease-in-out duration-500">
               {" "}
               {typedText}{" "}
             </span>
-            <span className="group-hover:text-yellow-500 transition-all ease-in-out duration-500">{`>`}</span>
+            <span className="group-hover:text-yellow-500 transition-all ease-in-out duration-500">{`/>`}</span>
           </span>
         </h1>
 

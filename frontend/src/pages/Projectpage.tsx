@@ -36,9 +36,7 @@ const Projectpage = () => {
   return (
     <div className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
       <article>
-        <title>
-          My Work | ANAND PANDEY
-        </title>
+        <title>My Work | ANAND PANDEY</title>
       </article>
       <div className="flex flex-col gap-y-3">
         <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-400">
@@ -67,7 +65,9 @@ const Projectpage = () => {
       </section>
       {/* cta */}
       <section className="w-full max-w-325 mx-auto flex justify-center items-center flex-col gap-6 p-5 border rounded-2xl mt-6 bg-white hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all ease-in-out duration-500">
-        <p className="text-2xl font-extrabold ">Have a technical challange ?</p>
+        <p className="text-xl sm:text-2xl font-extrabold ">
+          Have a technical challange ?
+        </p>
         <p className="max-w-lg text-justify text-neutral-600">
           I am Currenlty accepting new projects.Let's discuss how we can build
           something exceptional together.
