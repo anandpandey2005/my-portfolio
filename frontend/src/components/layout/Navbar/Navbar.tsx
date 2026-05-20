@@ -61,9 +61,7 @@ const Navbar = () => {
                     key={link.name}
                     to={link.path}
                     className={`flex items-center gap-2 rounded-xl p-2 font-medium transition-colors duration-200 group ${
-                      isCurrentActive
-                        ? "text-white bg-neutral-600" // Kept hover style intact permanently
-                        : "text-neutral-700 hover:text-white hover:bg-neutral-600"
+                      isCurrentActive ? "text-neutral-600" : "text-black"
                     }`}
                   >
                     <Icon
@@ -110,9 +108,7 @@ const Navbar = () => {
                       to={link.path}
                       onClick={() => setIsOpen(false)}
                       className={`flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition-all ${
-                        isCurrentActive
-                          ? "bg-white/20 text-blue-600" // Kept mobile hover style intact permanently
-                          : "text-neutral-700 hover:bg-white/20 hover:text-blue-600"
+                        isCurrentActive ? "text-neutral-600" : "text-black"
                       }`}
                     >
                       <Icon className="w-5 h-5" />

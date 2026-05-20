@@ -8,6 +8,7 @@ const prerenderRoutes = ['/', '/experience', '/project']
 const sitemapRoutes = ['experience', 'project']
 
 export default defineConfig({
+
   plugins: [
     react(),
     tailwindcss(),

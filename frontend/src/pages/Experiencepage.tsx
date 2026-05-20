@@ -67,7 +67,7 @@ const Experiencepage = () => {
   return (
     <div className=" text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
       <article>
-        <title>My Experieces AND Get In Touch | ANAND PANDEY</title>
+        <title>My Experieces | ANAND PANDEY</title>
       </article>
       <div className="flex flex-col gap-y-5">
         <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-400">
@@ -200,7 +200,7 @@ const Experiencepage = () => {
               name="message"
               id="message"
               placeholder="I  want collaborate with you"
-              className="outline-none border-b  border-neutral-300 py-2  focus:border-b-green-400 transition-all ease-in-out duration-500"
+              className="outline-none  border-b  border-neutral-300 py-2  focus:border-b-green-400 transition-all ease-in-out duration-500"
             ></textarea>
           </div>
 

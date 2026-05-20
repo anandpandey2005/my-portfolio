@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Homepage = () => {
@@ -17,8 +18,13 @@ const Homepage = () => {
   ];
   let navigate = useNavigate();
 
+  const [showFallback, setShowFallback] = useState(false);
+
   return (
     <div className="min-h-screen text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-7xl mx-auto">
+      <article>
+        <title>Namaste | ANAND PANDEY</title>
+      </article>
       {/* Hero Section */}
       <section className="relative max-w-4xl mx-auto mt-12 flex flex-col items-center text-center gap-y-6">
         <span className="px-4 py-1.5 bg-black/5 text-xs font-semibold tracking-wider uppercase rounded-full border border-black/10">
@@ -44,7 +50,7 @@ const Homepage = () => {
         <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Link
             to="/my-work"
-            className="px-6 py-3 bg-black text-white font-medium rounded-lg hover:bg-neutral-800 shadow-sm text-center hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all ease-in-out duration-500"
+            className="px-6 py-3 bg-black text-white font-medium rounded-lg hover:bg-neutral-800 active:bg-neutral-800 shadow-sm text-center hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all ease-in-out duration-500"
           >
             View My Work
           </Link>
@@ -110,6 +116,41 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+
+      {/* linkedin post */}
+      <div className=" w-full max-w-325 hidden sm:block mt-12   space-y-6 overflow-hidden">
+        <div className="px-8">
+          <p className="text-xs text-neutral-600 uppercase">
+            professionl journey
+          </p>
+          <p className="text-4xl font-extrabold">LinkedIn Latest Posts</p>
+        </div>
+        {showFallback ? (
+          <div className="border-none px-5 py-12 text-center">
+            <p className="text-neutral-600">
+              Unable to load LinkedIn posts at the moment. Please check back
+              later or visit my{" "}
+              <a
+                href="https://www.linkedin.com/in/anandpandey2005/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black font-medium underline hover:text-neutral-700"
+              >
+                LinkedIn profile
+              </a>
+              .
+            </p>
+          </div>
+        ) : (
+          <iframe
+            src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25683168"
+            width="103%"
+            height="600"
+            className="border-none px-5"
+            onError={() => setShowFallback(true)}
+          ></iframe>
+        )}
+      </div>
     </div>
   );
 };

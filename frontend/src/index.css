@@ -12,7 +12,19 @@ body {
   font-size: 1rem;
   word-spacing: 1px;
 }
+::selection {
+  background-color: rgba(82, 82, 82, 0.95);
+  color: #ffffff;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+::-webkit-scrollbar {
+  display: none;
+}
 
+:focus-visible {
+  outline: 2px solid #525252;
+  outline-offset: 2px;
+}
 li {
   list-style: none;
 }
