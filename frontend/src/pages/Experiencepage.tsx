@@ -90,15 +90,18 @@ const Experiencepage = () => {
     setAlert({ show: true, type, message });
     setTimeout(() => {
       setAlert({ show: false, type: null, message: "" });
-    }, 4000); // Automatically disappears after 4 seconds
+    }, 4000);
   };
 
-  // EmailJS
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
 
     setIsSending(true);
+
+    const formData = new FormData(formRef.current);
+    const senderName = formData.get("name") as string;
+    const senderEmail = formData.get("from_email") as string;
 
     emailjs
       .sendForm(
@@ -108,7 +111,22 @@ const Experiencepage = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(
-        () => {
+        async () => {
+          try {
+            await emailjs.send(
+              import.meta.env.VITE_EMAILJS_SERVICE_ID,
+              import.meta.env.VITE_EMAIL_JS_TEMPLATE_AUTO_REPLY,
+              {
+                to_email: senderEmail,
+                name: senderName,
+                from_email: senderEmail,
+              },
+              import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+            );
+          } catch (error) {
+            console.error("Auto-reply sending failed:", error);
+          }
+
           showAlert(
             "success",
             "Message sent successfully! I'll get back to you soon.",
