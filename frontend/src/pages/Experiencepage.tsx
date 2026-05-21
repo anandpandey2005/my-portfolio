@@ -1,7 +1,14 @@
-import { Mail, MapPinIcon, SendIcon } from "lucide-react";
+import {
+  Mail,
+  MapPinIcon,
+  SendIcon,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
 import ExperienceCard from "../components/ui/Card/ExperienceCard";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 interface IExperienceprops {
   id: number | null;
@@ -16,6 +23,20 @@ interface IExperienceprops {
 }
 
 const Experiencepage = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
+
+  // Custom Alert/Toast State
+  const [alert, setAlert] = useState<{
+    show: boolean;
+    type: "success" | "error" | null;
+    message: string;
+  }>({
+    show: false,
+    type: null,
+    message: "",
+  });
+
   let experiences: IExperienceprops[] = [
     {
       id: 1,
@@ -64,8 +85,63 @@ const Experiencepage = () => {
     }
   }, [location]);
 
+  // Helper function to handle timing out the alert
+  const showAlert = (type: "success" | "error", message: string) => {
+    setAlert({ show: true, type, message });
+    setTimeout(() => {
+      setAlert({ show: false, type: null, message: "" });
+    }, 4000); // Automatically disappears after 4 seconds
+  };
+
+  // EmailJS
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setIsSending(true);
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_JS_TEMPLATE_CONTACT_US,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        () => {
+          showAlert(
+            "success",
+            "Message sent successfully! I'll get back to you soon.",
+          );
+          formRef.current?.reset();
+        },
+        (error) => {
+          console.error("EmailJS Error:", error);
+          showAlert("error", "Failed to send message. Please try again later.");
+        },
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
+
   return (
-    <div className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
+    <main className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto relative">
+      <div
+        className={`fixed bottom-5 right-5 z-50 flex items-center gap-x-3 px-5 py-4 rounded-xl border bg-white shadow-xl transition-all duration-500 ease-in-out ${
+          alert.show
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-4 scale-95 pointer-events-none"
+        } ${alert.type === "success" ? "border-green-200" : "border-red-200"}`}
+      >
+        {alert.type === "success" ? (
+          <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
+        ) : (
+          <XCircle className="h-5 w-5 text-red-500 shrink-0" />
+        )}
+        <p className="text-sm font-medium text-neutral-800">{alert.message}</p>
+      </div>
+
       <article>
         <title>My Experiences | ANAND PANDEY</title>
       </article>
@@ -101,7 +177,7 @@ const Experiencepage = () => {
             Startups taught me speed and ownership. Structured teams taught me
             discipline and communication.
           </strong>{" "}
-          आज जो भी मैं बिल्ड करता हूं, उसमें दोनों का बैलेंस होता है।
+          आज जो भी मैं बिल्ड करता हूं, उसमें दोनों का Balance होता है।
         </p>
       </div>
 
@@ -219,8 +295,16 @@ const Experiencepage = () => {
           </div>
         </div>
 
-        {/* Right: Skills / Expertise */}
-        <div className="flex flex-col gap-y-5 md:pl-6">
+        <form
+          ref={formRef}
+          onSubmit={sendEmail}
+          className="flex flex-col gap-y-5 md:pl-6"
+        >
+          <input
+            type="hidden"
+            name="time"
+            value={new Date().toLocaleString()}
+          />
           <div className="flex flex-col gap-2">
             <label htmlFor="fullname" className="uppercase font-bold">
               full Name
@@ -228,8 +312,10 @@ const Experiencepage = () => {
             <input
               type="text"
               id="fullname"
+              name="name"
               placeholder="Anand Pandey"
-              className="outline-none border-b border-neutral-300 py-2  focus:border-b-green-400 transition-all ease-in-out duration-500"
+              required
+              className="outline-none border-b border-neutral-300 py-2 focus:border-b-green-400 transition-all ease-in-out duration-500"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -237,36 +323,42 @@ const Experiencepage = () => {
               email
             </label>
             <input
-              type="text"
+              type="email"
               id="email"
+              name="from_email"
               placeholder="anandpandey20005@gmail.com"
-              className="outline-none border-b border-neutral-300 py-2  focus:border-b-green-400 transition-all ease-in-out duration-500"
+              required
+              className="outline-none border-b border-neutral-300 py-2 focus:border-b-green-400 transition-all ease-in-out duration-500"
             />
           </div>
-          <div className="flex flex-col gap-2 ">
+          <div className="flex flex-col gap-2">
             <label htmlFor="message" className="uppercase font-bold">
               message
             </label>
             <textarea
-              name="message"
               id="message"
-              placeholder="I want collaborate with you"
-              className="outline-none  border-b  border-neutral-300 py-2  focus:border-b-green-400 transition-all ease-in-out duration-500"
+              name="message"
+              placeholder="I want to collaborate with you"
+              required
+              className="outline-none border-b border-neutral-300 py-2 focus:border-b-green-400 transition-all ease-in-out duration-500"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="flex items-center gap-2 p-5 bg-black text-white justify-center rounded-2xl hover:bg-white hover:text-black transition-all ease-in-out duration-500"
+            disabled={isSending}
+            className="flex items-center gap-2 p-5 bg-black text-white justify-center rounded-2xl hover:bg-white hover:text-black transition-all ease-in-out duration-500 disabled:bg-neutral-400 disabled:cursor-not-allowed"
           >
-            <span>SEND MESSAGE </span>
-            <span>
-              <SendIcon />
-            </span>
+            <span>{isSending ? "SENDING..." : "SEND MESSAGE"}</span>
+            {!isSending && (
+              <span>
+                <SendIcon />
+              </span>
+            )}
           </button>
-        </div>
+        </form>
       </section>
-    </div>
+    </main>
   );
 };
 

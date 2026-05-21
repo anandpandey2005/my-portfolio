@@ -15,26 +15,83 @@ const Projectpage = () => {
   const works: IWorkProps[] = [
     {
       id: 1,
-      image: "./homepageImage.jpeg",
-      title: "Mailer Engine",
+      image: "./mailer_project_logo.png",
+      title: "Mailer",
       description:
-        "A high-throughput, automated email campaign platform featuring real-time delivery analytics, custom HTML templates, and webhook integration.",
-      used: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Redis"],
-      link: "https://github.com/yourusername/mailer",
+        "Many job seekers, small startups, and agencies struggle with email marketing especially sending resumes or campaigns to a large list of recipients without a proper tool. Mailer solves this by letting users configure their Google account's app password, upload a file containing a list of recipient emails, and send emails in bulk completely free. It supports up to 500 emails per day and includes real-time performance tracking so users can monitor delivery as it happens.",
+      used: [
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "Node js",
+        "Express",
+        "Websocket",
+        "Nodemailer (SMTP)",
+      ],
+      link: "https://mailerbyanand.vercel.app/",
     },
     {
       id: 2,
-      image: "./homepageImage.jpeg",
-      title: "E-Commerce Gateway",
+      image: "./jeevo_project.png",
+      title: "Jeevo",
       description:
-        "A lightning-fast storefront optimized for Core Web Vitals, offering seamless state management, dynamic routing, and instant checkout flows.",
-      used: ["Next.js", "GraphQL", "Tailwind CSS", "Stripe"],
-      link: "https://github.com/yourusername/ecommerce",
+        "Medical emergencies often fail due to the critical delay in finding nearby blood donors slow phone calls and broad social media posts waste precious time. Jeevo solves this by instantly matching hospitals with compatible, nearby donors using geospatial queries. Donors are encouraged to give regularly through a points and badge reward system ranging from Bronze to Hero. The platform features separate secure dashboards for donors and hospitals donors can track their donation history and health status, while hospitals can broadcast urgent requests and manage blood inventory. Automated cooldown logic (such as 90-day waiting periods) ensures donor safety between sessions.",
+      used: [
+        "javascript",
+        "Reat",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Node Js",
+        "Express",
+        "Mongoose",
+        "Websocket",
+        "JWT",
+        "Bcrypt",
+        "MongoDb",
+        "Nodemailer",
+      ],
+      link: "https://jeevo.vercel.app/",
+    },
+
+    {
+      id: 4,
+      image: "./Direct_play.png",
+      title: "Direct Play",
+      description:
+        "Tired of relying solely on YouTube for news, where unauthentic channels often overshadow legitimate ones, I built a solution that streams real, free-to-air TV news channels directly in the browser. By researching and extracting M3U8 playlist URLs used by these broadcasters, I implemented a live TV streaming experience covering all major genres of free air channels. The app also uses ABR (Adaptive Bitrate) to dynamically adjust stream quality and minimize buffering.",
+      used: [
+        "javascript",
+        "Reat",
+        "Tailwind CSS",
+        "Node Js",
+        "Express",
+        "Hls.js",
+        "Video.js",
+        "Abr concept implement",
+      ],
+      link: "https://direct-play.onrender.com/",
+    },
+    {
+      id: 3,
+      image: "./sharing_is_careing.png",
+      title: "Sharing is caring",
+      description:
+        "Most video sharing platforms require an account just to upload or view content. This project solves that by providing a completely free, no login platform where anyone can upload and share videos publicly. Any user can also delete inappropriate content to keep the platform clean. Future plans include private video sharing and uploader only delete controls.",
+      used: [
+        "javascript",
+        "React",
+        "Tailwind CSS",
+        "Node Js",
+        "Express",
+        "Multer",
+        "Cloudinary",
+      ],
+      link: "https://shareingiscaringg.netlify.app/",
     },
   ];
 
   return (
-    <div className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
+    <main className="text-black flex flex-col justify-center px-6 py-20 sm:px-12 lg:px-24 max-w-6xl mx-auto">
       <article>
         <title>My Work | ANAND PANDEY</title>
       </article>
@@ -79,7 +136,7 @@ const Projectpage = () => {
           Let's Talk
         </button>
       </section>
-    </div>
+    </main>
   );
 };
 

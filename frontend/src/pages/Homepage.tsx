@@ -52,7 +52,7 @@ const Homepage = () => {
   }, [isIframeLoaded]);
 
   return (
-    <div className="min-h-screen text-black flex flex-col justify-center px-6 pt-0 sm:pt-10 pb-20 sm:px-12 lg:px-24 max-w-7xl mx-auto">
+    <main className="min-h-screen text-black flex flex-col justify-center px-6 pt-0 sm:pt-10 pb-20 sm:px-12 lg:px-24 max-w-7xl mx-auto">
       <article>
         <title>Namaste | ANAND PANDEY</title>
       </article>
@@ -240,7 +240,7 @@ const Homepage = () => {
           ></iframe>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 
