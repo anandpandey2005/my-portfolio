@@ -5,6 +5,7 @@ import Experiencepage from "./pages/Experiencepage.js";
 import Projectpage from "./pages/Projectpage.js";
 import Navbar from "./components/layout/Navbar/Navbar.js";
 import Footer from "./components/layout/Footer/Footer.js";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Footer></Footer>
         </div>
       </div>
+      <SpeedInsights />
     </>
   );
 }
