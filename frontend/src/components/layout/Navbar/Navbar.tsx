@@ -48,7 +48,10 @@ const Navbar = () => {
               to="/"
               className="text-xl font-bold bg-neutral-800 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
             >
-              AP
+            <picture>
+  
+           <img src="small-image.jpg" alt="A descriptive fallback text">
+            </picture>
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
