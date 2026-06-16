@@ -53,7 +53,7 @@ const Navbar = () => {
               <img 
                 src="/Favicon_image.jpg" 
                 alt="AP Logo" 
-                className="h-15 w-auto object-contain rounded-md" 
+                className="h-10 w-auto object-contain rounded-md" 
               />
             </Link>
 
