@@ -50,7 +50,7 @@ const Navbar = () => {
             >
             <picture>
   
-           <img src="/Favicon_image.jpg" alt="AP">
+           <img src="/Favicon_image.jpg" alt="AP"/>
             </picture>
             </Link>
 
