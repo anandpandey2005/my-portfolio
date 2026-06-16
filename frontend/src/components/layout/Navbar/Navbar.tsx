@@ -44,14 +44,17 @@ const Navbar = () => {
       >
         <div className="w-full max-w-6xl mx-auto px-6">
           <div className="relative flex justify-between items-center px-6 py-3 rounded-3xl backdrop-blur-md bg-white/20 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+            
+            {/* Logo Link container */}
             <Link
               to="/"
-              className="text-xl font-bold bg-neutral-800 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+              className="flex items-center justify-center hover:opacity-80 transition-opacity"
             >
-            <picture>
-  
-           <img src="/Favicon_image.jpg" alt="AP"/>
-            </picture>
+              <img 
+                src="/Favicon_image.jpg" 
+                alt="AP Logo" 
+                className="h-8 w-auto object-contain rounded-md" 
+              />
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
