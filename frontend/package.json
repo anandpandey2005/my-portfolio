@@ -9,10 +9,21 @@
     "lint": "eslint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "lucide-react": "^1.33.0",
     "next": "16.3.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
+=======
+    "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/vite": "^4.3.0",
+    "@vercel/speed-insights": "^2.0.0",
+    "lucide-react": "^1.16.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.15.1",
+    "tailwindcss": "^4.3.0"
+>>>>>>> 9b947a2c1eadc9c827ecae56f252021b66e97710
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
