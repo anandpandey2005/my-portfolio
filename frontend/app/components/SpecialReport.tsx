@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Newspaper, Quote, GitCommit, Sparkles, Activity } from "lucide-react";
+import { Newspaper, Quote, Activity } from "lucide-react";
 
 export default function SpecialReport() {
   const [activeCardTab, setActiveCardTab] = useState<"streak" | "graph" | "profile">("streak");

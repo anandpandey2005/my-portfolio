@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Globe, MapPin, Mail, Check, ExternalLink, Code } from "lucide-react";
+import { Globe, Mail, Check, ExternalLink, Code } from "lucide-react";
 
 export default function ProfileCard() {
   const [copied, setCopied] = useState(false);

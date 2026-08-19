@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Terminal, Moon, Sun, Newspaper, Layers, Code, Cpu, Mail, Star } from "lucide-react";
+import { Terminal, Moon, Sun, Newspaper, Layers, Code, Cpu, Mail } from "lucide-react";
 
 interface HeaderProps {
   theme: "newsprint" | "dark" | "modern";

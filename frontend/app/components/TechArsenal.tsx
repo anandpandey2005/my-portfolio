@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Cpu, CheckCircle2, Layers } from "lucide-react";
+import { Cpu, Layers } from "lucide-react";
 
 interface TechItem {
   name: string;

@@ -24,6 +24,64 @@ const PINNED_REPO_NAMES = [
   "website_template_showcase",
 ];
 
+const FALLBACK_REPOS: Repository[] = [
+  {
+    id: 1,
+    name: "my-portfolio",
+    description: "Special Edition Tech Gazette & Interactive Developer Dossier built with Next.js, Tailwind CSS & TypeScript.",
+    html_url: "https://github.com/anandpandey2005/my-portfolio",
+    stargazers_count: 5,
+    forks_count: 1,
+    language: "TypeScript",
+    topics: ["nextjs", "tailwindcss", "portfolio", "react"],
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    name: "apex_class",
+    description: "Production-ready Academy Management System featuring Admin & Student Portals, RBAC, Fee Management, PDF Receipts & Attendance Analytics.",
+    html_url: "https://github.com/anandpandey2005/apex_class",
+    stargazers_count: 4,
+    forks_count: 1,
+    language: "TypeScript",
+    topics: ["nextjs", "react", "typescript", "express"],
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    name: "jeevo",
+    description: "A blood coordination platform built to reduce delay between urgent need, donor response, and hospital action.",
+    html_url: "https://github.com/anandpandey2005/jeevo",
+    stargazers_count: 3,
+    forks_count: 0,
+    language: "JavaScript",
+    topics: ["react", "express", "mongodb"],
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 4,
+    name: "Mailer",
+    description: "Parse PDF & Excel files, extract email addresses, and send personalized campaigns using custom templates in seconds.",
+    html_url: "https://github.com/anandpandey2005/Mailer",
+    stargazers_count: 3,
+    forks_count: 0,
+    language: "TypeScript",
+    topics: ["nextjs", "nodemailer", "exceljs"],
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 5,
+    name: "directPlay",
+    description: "A lightweight, responsive web-based live stream and video player designed for seamless multi-channel streaming.",
+    html_url: "https://github.com/anandpandey2005/directPlay",
+    stargazers_count: 2,
+    forks_count: 1,
+    language: "HTML",
+    topics: ["streaming", "hls", "video-player"],
+    updated_at: new Date().toISOString(),
+  },
+];
+
 export default function LiveProjects() {
   const [repos, setRepos] = useState<Repository[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -40,11 +98,11 @@ export default function LiveProjects() {
           const data: Repository[] = await res.json();
           setRepos(data);
         } else {
-          setFallbackRepos();
+          setRepos(FALLBACK_REPOS);
         }
       } catch (err) {
         console.error("Failed to fetch GitHub repos", err);
-        setFallbackRepos();
+        setRepos(FALLBACK_REPOS);
       } finally {
         setLoading(false);
       }
@@ -52,66 +110,6 @@ export default function LiveProjects() {
 
     fetchRepos();
   }, []);
-
-  const setFallbackRepos = () => {
-    setRepos([
-      {
-        id: 1,
-        name: "my-portfolio",
-        description: "Special Edition Tech Gazette & Interactive Developer Dossier built with Next.js, Tailwind CSS & TypeScript.",
-        html_url: "https://github.com/anandpandey2005/my-portfolio",
-        stargazers_count: 5,
-        forks_count: 1,
-        language: "TypeScript",
-        topics: ["nextjs", "tailwindcss", "portfolio", "react"],
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: 2,
-        name: "apex_class",
-        description: "Production-ready Academy Management System featuring Admin & Student Portals, RBAC, Fee Management, PDF Receipts & Attendance Analytics.",
-        html_url: "https://github.com/anandpandey2005/apex_class",
-        stargazers_count: 4,
-        forks_count: 1,
-        language: "TypeScript",
-        topics: ["nextjs", "react", "typescript", "express"],
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: 3,
-        name: "jeevo",
-        description: "A blood coordination platform built to reduce delay between urgent need, donor response, and hospital action.",
-        html_url: "https://github.com/anandpandey2005/jeevo",
-        stargazers_count: 3,
-        forks_count: 0,
-        language: "JavaScript",
-        topics: ["react", "express", "mongodb"],
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: 4,
-        name: "Mailer",
-        description: "Parse PDF & Excel files, extract email addresses, and send personalized campaigns using custom templates in seconds.",
-        html_url: "https://github.com/anandpandey2005/Mailer",
-        stargazers_count: 3,
-        forks_count: 0,
-        language: "TypeScript",
-        topics: ["nextjs", "nodemailer", "exceljs"],
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: 5,
-        name: "directPlay",
-        description: "A lightweight, responsive web-based live stream and video player designed for seamless multi-channel streaming.",
-        html_url: "https://github.com/anandpandey2005/directPlay",
-        stargazers_count: 2,
-        forks_count: 1,
-        language: "HTML",
-        topics: ["streaming", "hls", "video-player"],
-        updated_at: new Date().toISOString(),
-      },
-    ]);
-  };
 
   const isRepoPinned = (name: string) => PINNED_REPO_NAMES.includes(name.toLowerCase());
 
