@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif-val: var(--font-serif), Georgia, serif;
+    --font-mono-val: var(--font-mono), monospace;
+    --font-sans-val: var(--font-sans), sans-serif;
+  }
+}
+
+.font-serif-heading {
+  font-family: var(--font-serif-val);
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono-val);
+}
+
+.font-sans-body {
+  font-family: var(--font-sans-val);
+}
+
+/* Vintage Paper & Theme Styles */
+body.theme-newsprint {
+  background-color: #f5f0e8;
+  color: #1a1a1a;
+}
+
+body.theme-dark {
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+body.theme-modern {
+  background-color: #fafafa;
+  color: #0f172a;
+}
+
+/* Newsprint Border & Rule Lines */
+.news-border-double {
+  border-style: double;
+  border-width: 4px;
+}
+
+.news-divider-thick {
+  border-bottom: 3px solid currentColor;
+}
+
+.news-divider-thin {
+  border-bottom: 1px solid currentColor;
+}
+
+.news-divider-dashed {
+  border-bottom: 1px dashed currentColor;
+}
+
+/* Drop Cap for Editorial lead paragraph */
+.drop-cap::first-letter {
+  font-family: var(--font-serif-val);
+  font-size: 3.5rem;
+  line-height: 0.8;
+  float: left;
+  font-weight: 800;
+  margin-right: 0.6rem;
+  margin-top: 0.1rem;
+  text-transform: uppercase;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
+
+/* Animations */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse Glow */
+.glow-emerald {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.glow-crimson {
+  box-shadow: 0 0 15px rgba(225, 29, 72, 0.25);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth Hover Micro-Animations */
+.hover-card-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.hover-card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom internal scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.4);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.7);
+}
+
+
+
